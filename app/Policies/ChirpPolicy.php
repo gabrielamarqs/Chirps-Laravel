@@ -43,10 +43,11 @@ class ChirpPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    // public function delete(User $user, Chirp $chirp): bool
-    // {
-    //     //
-    // }
+    public function delete(User $user, Chirp $chirp): bool
+    {
+        // quem estiver autorizado a editar o Chirp, pode deletar também
+        return $this->update($user, $chirp);
+    }
 
     /**
      * Determine whether the user can restore the model.
